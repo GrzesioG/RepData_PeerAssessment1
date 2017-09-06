@@ -1,9 +1,25 @@
-# Reproducible Research: Peer Assessment 1
+
+
+```r
+---
+title: "Reproducible Research: Peer Assessment 1"
+output: 
+  html_document:
+    keep_md: true
+---
 
 This is markdown document addressing peer assigment 1 from "Reproducilbe Research"
 
 ## Loading and preprocessing the data
 Lets read data from the zip file
+```
+
+```
+## Error: <text>:8:6: unexpected symbol
+## 7: 
+## 8: This is
+##         ^
+```
 
 ```r
 dataDF<-read.csv(unz("repdata_data_activity.zip","activity.csv"), na.strings = c("","NA"))
@@ -72,7 +88,7 @@ Time to calculate total number of steps taken each day
 ```
 
 Now, let's plot histogram of total steps by day
-![](PA1_template_files/figure-html/histogram plot-1.png)<!-- -->
+![plot of chunk histogram plot](figure/histogram plot-1.png)
 
 Mean of the total number of steps taken per day:
 
@@ -88,7 +104,7 @@ Median of the total number of steps taken per day:
 ## What is the average daily activity pattern?
 
 We are going to plot time series plot with average number of steps by day.
-![](PA1_template_files/figure-html/time series-1.png)<!-- -->
+![plot of chunk time series](figure/time series-1.png)
 
 Which 5-minute interval, on avarage across all the days in the dataset, contains the maximum number of steps?
 
@@ -132,7 +148,7 @@ dataDFFixed$steps<-ifelse(is.na(dataDFFixed$steps),as.integer(dataDFFixed$stepsm
 dataDFFixed<-dataDFFixed[,1:3]
 ```
 The dataset has been fixed, we will plot histogram now:
-![](PA1_template_files/figure-html/histogram fixed plot-1.png)<!-- -->
+![plot of chunk histogram fixed plot](figure/histogram fixed plot-1.png)
 
 Mean of the total number of steps taken per day for fixed dataset:
 
@@ -156,6 +172,7 @@ dataDFFixed$weekpart<-ifelse(weekdays(dataDFFixed$date) %in% c("Saturday","Sunda
 ```
 
 Panel plot with time series plots of the 5-minute interval and the average steps taken, averaged across all weekday days or weekend days
-![](PA1_template_files/figure-html/weekpart plot-1.png)<!-- -->
+![plot of chunk weekpart plot](figure/weekpart plot-1.png)
+```
 ```
 
