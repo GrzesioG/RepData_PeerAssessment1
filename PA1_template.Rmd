@@ -1,11 +1,5 @@
 
-```{r }
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+#"Reproducible Research: Peer Assessment 1"
 
 This is markdown document addressing peer assigment 1 from "Reproducilbe Research"
 

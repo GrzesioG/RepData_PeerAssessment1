@@ -1,25 +1,10 @@
 
-
-```r
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
+#"Reproducible Research: Peer Assessment 1"
 
 This is markdown document addressing peer assigment 1 from "Reproducilbe Research"
 
 ## Loading and preprocessing the data
 Lets read data from the zip file
-```
-
-```
-## Error: <text>:8:6: unexpected symbol
-## 7: 
-## 8: This is
-##         ^
-```
 
 ```r
 dataDF<-read.csv(unz("repdata_data_activity.zip","activity.csv"), na.strings = c("","NA"))
