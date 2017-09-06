@@ -1,3 +1,5 @@
+
+```{r }
 ---
 title: "Reproducible Research: Peer Assessment 1"
 output: 
@@ -101,3 +103,5 @@ Panel plot with time series plots of the 5-minute interval and the average steps
 stepsAvg<-aggregate(steps ~ interval+weekpart, data=dataDFFixed, mean)
 ggplot(aes(y=steps, x=interval), data=stepsAvg)+geom_line(size=1) + geom_point() + facet_wrap(~weekpart, nrow=2) + labs(x="Interval", y="Avg Steps") + ggtitle("Average number of steps by interval by week part")
 ```
+```
+
