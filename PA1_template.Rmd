@@ -19,17 +19,17 @@ stepsTotal
 ```
 
 Now, let's plot histogram of total steps by day
-```{r histogramplot, echo=FALSE, message=FALSE, warning=FALSE}
+```{r histogramplot, message=FALSE, warning=FALSE}
 library(ggplot2)
 ggplot(data=stepsTotal, aes(stepsTotal$steps)) + geom_histogram(col="red", aes(fill=..count..)) + ggtitle("Histogram of total steps by day")
 ```
 
 Mean of the total number of steps taken per day:
-```{r mean, echo=FALSE}
+```{r mean}
 mean(stepsTotal$steps)
 ```
 Median of the total number of steps taken per day:
-```{r median, echo=FALSE}
+```{r median}
 median(stepsTotal$steps)
 ```
 
@@ -56,7 +56,7 @@ sum(is.na(dataDF$steps))
 
 The strategy for filling in all the missing values in the dataset. Super simple approach - I take average number of steps for the interval.
 "stepsAvg" holds number of steps by interval. 
-```{r steps avg, echo=FALSE}
+```{r steps avg}
 summary(stepsAvg)
 ```
 
@@ -75,11 +75,11 @@ ggplot(data=stepsTotal, aes(stepsTotal$steps)) + geom_histogram(col="red", aes(f
 ```
 
 Mean of the total number of steps taken per day for fixed dataset:
-```{r mean fixed, echo=FALSE}
+```{r mean fixed}
 mean(stepsTotal$steps)
 ```
 Median of the total number of steps taken per day for fixed dataset:
-```{r median fixed, echo=FALSE}
+```{r median fixed}
 median(stepsTotal$steps)
 ```
 
