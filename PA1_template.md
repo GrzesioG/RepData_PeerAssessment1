@@ -15,6 +15,11 @@ dataDF$date<-as.Date(dataDF$date)
 ## What is mean total number of steps taken per day?
 Time to calculate total number of steps taken each day
 
+```r
+stepsTotal<-aggregate(steps ~ date, data=dataDF, sum)
+stepsTotal
+```
+
 ```
 ##          date steps
 ## 1  2012-10-02   126
@@ -89,9 +94,19 @@ Median of the total number of steps taken per day:
 ## What is the average daily activity pattern?
 
 We are going to plot time series plot with average number of steps by day.
+
+```r
+stepsAvg<-aggregate(steps ~ interval, data=dataDF, mean)
+ggplot(aes(y=steps, x=interval), data=stepsAvg)+geom_line(size=1) + geom_point() + labs(x="Interval", y="Avg Steps") + ggtitle("Average number of steps by interval")
+```
+
 ![plot of chunk timeseries](figure/timeseries-1.png)
 
 Which 5-minute interval, on avarage across all the days in the dataset, contains the maximum number of steps?
+
+```r
+stepsAvg[stepsAvg$steps==max(stepsAvg$steps),1]
+```
 
 ```
 ## [1] 835
@@ -133,6 +148,12 @@ dataDFFixed$steps<-ifelse(is.na(dataDFFixed$steps),as.integer(dataDFFixed$stepsm
 dataDFFixed<-dataDFFixed[,1:3]
 ```
 The dataset has been fixed, we will plot histogram now:
+
+```r
+stepsTotal<-aggregate(steps ~ date, data=dataDFFixed, sum)
+ggplot(data=stepsTotal, aes(stepsTotal$steps)) + geom_histogram(col="red", aes(fill=..count..)) + ggtitle("Histogram of total steps by day for fixed dataset")
+```
+
 ![plot of chunk histogramfixedplot](figure/histogramfixedplot-1.png)
 
 Mean of the total number of steps taken per day for fixed dataset:
@@ -157,6 +178,12 @@ dataDFFixed$weekpart<-ifelse(weekdays(dataDFFixed$date) %in% c("Saturday","Sunda
 ```
 
 Panel plot with time series plots of the 5-minute interval and the average steps taken, averaged across all weekday days or weekend days
+
+```r
+stepsAvg<-aggregate(steps ~ interval+weekpart, data=dataDFFixed, mean)
+ggplot(aes(y=steps, x=interval), data=stepsAvg)+geom_line(size=1) + geom_point() + facet_wrap(~weekpart, nrow=2) + labs(x="Interval", y="Avg Steps") + ggtitle("Average number of steps by interval by week part")
+```
+
 ![plot of chunk weekpartplot](figure/weekpartplot-1.png)
 ```
 ```
