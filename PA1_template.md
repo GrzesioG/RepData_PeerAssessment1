@@ -88,7 +88,7 @@ Time to calculate total number of steps taken each day
 ```
 
 Now, let's plot histogram of total steps by day
-![plot of chunk histogram plot](figure/histogram plot-1.png)
+![plot of chunk histogramplot](figure/histogramplot-1.png)
 
 Mean of the total number of steps taken per day:
 
@@ -104,7 +104,7 @@ Median of the total number of steps taken per day:
 ## What is the average daily activity pattern?
 
 We are going to plot time series plot with average number of steps by day.
-![plot of chunk time series](figure/time series-1.png)
+![plot of chunk timeseries](figure/timeseries-1.png)
 
 Which 5-minute interval, on avarage across all the days in the dataset, contains the maximum number of steps?
 
@@ -148,7 +148,7 @@ dataDFFixed$steps<-ifelse(is.na(dataDFFixed$steps),as.integer(dataDFFixed$stepsm
 dataDFFixed<-dataDFFixed[,1:3]
 ```
 The dataset has been fixed, we will plot histogram now:
-![plot of chunk histogram fixed plot](figure/histogram fixed plot-1.png)
+![plot of chunk histogramfixedplot](figure/histogramfixedplot-1.png)
 
 Mean of the total number of steps taken per day for fixed dataset:
 
@@ -172,7 +172,8 @@ dataDFFixed$weekpart<-ifelse(weekdays(dataDFFixed$date) %in% c("Saturday","Sunda
 ```
 
 Panel plot with time series plots of the 5-minute interval and the average steps taken, averaged across all weekday days or weekend days
-![plot of chunk weekpart plot](figure/weekpart plot-1.png)
+![plot of chunk weekpartplot](figure/weekpartplot-1.png)
+```
 ```
 ```
 
